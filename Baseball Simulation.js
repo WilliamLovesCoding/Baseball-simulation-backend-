@@ -6,13 +6,13 @@ let username = 'William';
 const opponentTeam = 'Red Sox';
 const heroTeam = 'White Sox';
 const introduction = () => {
-    console.log(Welcome, ${username}, today we will be playing a 3 inning baseball against the ${opponentTeam}, let us begin.);
+    console.log(`Welcome, ${username}, today we will be playing a 3 inning baseball game against the ${opponentTeam}, let us begin.`);
 }
 introduction();
 
 const opponentPitcher = 'Rodney Landers';
 const introductionPitcher = () => {
-    console.log(Pitching for the ${opponentTeam}, #12 ${opponentPitcher}.);
+    console.log(`Pitching for the ${opponentTeam}, #12 ${opponentPitcher}.`);
     console.log('Throws ball');
 }
 introductionPitcher();
@@ -20,33 +20,43 @@ introductionPitcher();
 // This variable and function declaration is used to generate either a strike or a ball
 function strike () {
     let pitchForStrike = Math.floor(Math.random() * 2 );
-    console.log(pitchForStrike);
     if (pitchForStrike === 1) {
         console.log('Strike!');
+        return true;
     } else {
         console.log('Ball!');
+        return false;
     }
 }
 // Still testing and figuring out how to count strikes and balls to make more dynamic. Ex: Strike 1, Strike 2, Ball 1, etc..
-strike();
-strike();
-strike();
-strike();
+//strike();
+
+// This code is an attempt on logically connecting strikes and balls together (not finished yet).
+const strikeLimit = () => {
+    if (strike() === true) {
+        console.log('Strike 2!');
+        return true;
+    } else {
+        console.log('Ball 2!');
+        return false;
+    }
+}
+strikeLimit();
+
+const strikeLimitTwo = () => {
+    if (strikeLimit() === true) {
+        console.log('Strike 3!');
+    } else {
+        console.log('Ball 3!');
+    }
+}
+strikeLimitTwo();
 
 // Will add a function for hitting a homerun and scoring in the future.
 
-// This is the script for hero team pitching the ball against enemy team
+// This is the script for hero team pitching the ball against enemy team. I have not made it this far yet in the game, but just for future reference.
 function heroPitcher () {
-    console.log(Great job! you will now be pitching against ${opponentPitcher})
+    console.log(`Great job! you will now be pitching against ${opponentPitcher}`)
 }
 heroPitcher();
 
-// This code is an attempt on logically connecting strikes and balls together (not finished yet).
-/const strikeLimit = () => {
-if (strike === true) {
-    console.log('Strike 2!');
-} else {
-    console.log('');
-}
-}
-strikeLimit();/
