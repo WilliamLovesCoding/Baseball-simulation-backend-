@@ -12,12 +12,12 @@ const introduction = () => {
 }
 introduction();
 
-let equipmentList = ['Catching Glove' ,'baseballs' , 'Cleets' , 'Bat'];
-console.log(`Before you begin, you will be using these in the game: ${equipmentList}`);
+let equipmentList = ['Catching Glove' ,'baseballs' , 'Cleets' , 'and a Wooden Bat'];
+console.log(`You will be using these in the game: ${equipmentList}.`);
 
 const introductionPitcher = () => {
     console.log(`Pitching for the ${opponentTeam}, ${opponentMemberNames[0]}.`);
-    console.log('Throws ball');
+    console.log('*Throws ball*');
 }
 introductionPitcher();
 
@@ -41,10 +41,14 @@ const strikeBall = () => {
     let counterStrike = ['Strike 1!', 'Strike 2!', "Strike 3, You're out!"]
     //let pitchForStrike = Math.floor(Math.random() * 2 );
     for (let i = 0; i < counterStrike.length; i++) {
-    return counterStrike[i];
+        return counterStrike[i]
     }
 }
 console.log(strikeBall());
+
+console.log(`Outstanding! You just hit a homerun against ${opponentMemberNames[0]}. That's an automatic point for your team!`);
+
+console.log('That was great batting for this inning. now its time for you to switch to pitching as the star pitcher for the team!')
 // I am currently experimenting with a new function that keeps tracks of Strikes and Balls using arrays and loops above
 /*const strikeLimit = () => {
     if (strike() === true) {
@@ -55,7 +59,7 @@ console.log(strikeBall());
         return false;
     }
 }
-strikeLimit();*/
+strikeLimit(); */
 // I am currently experimenting with a new function that keeps tracks of Strikes and Balls using arrays and loops
 /*const strikeLimitTwo = () => {
     if (strikeLimit() === true) {
@@ -69,23 +73,26 @@ strikeLimitTwo();*/
 // Will add a function for hitting a homerun and scoring in the future.
 
 // This is the script for hero team pitching the ball against enemy team. I have not made it this far yet in the game, but just for future reference.
-function heroPitcher () {
-    console.log(`Great job! you will now be pitching against ${opponentMemberNames[1]}.`)
+function heroPitcher (opponentSide) {
+    return console.log(`Great job! you will now be pitching against ${opponentMemberNames[1]}.`)
 }
 heroPitcher();
+
+console.log('*Throws ball*');
 // I may reinsert strike and ball function for this part
 
-const heroBatter = () => {
-    console.log(`Great job! You will now be batting against the ${opponentTeam} again.`);
-}
-heroBatter();
+console.log(`Great job! It is the second inning and you will now be batting again.`);
 
+heroPitcher(opponentMemberNames[2]);
+
+console.log('Excellent! It is now the third inning and you will be batting again.');
 
 // This section will be used to end off the simulation. I may use this to summarize the game and thank user for playing this simulation.
 
 // Will work on integrating array for the user to know what equipment they will bring back home.
 
-console.log('Thank you for playing this simulation! Here are the results of the game:')
+console.log('Thank you for playing this simulation! Here are the results of the game:');
+
 // Spoiler alert LOL
-console.log(`After you breaking your bat during the game, you will end up leaving with ${equipmentList.splice(0,3)}.`);
+console.log(`After you broke your bat during the game, you ended up leaving with ${equipmentList.splice(0,3)}.`);
 
