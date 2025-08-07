@@ -5,7 +5,7 @@
 let userName = 'William';
 const opponentTeam = 'Red Sox';
 const heroTeam = 'White Sox';
-const opponentMemberNames = ['#12 Rodney', '#43 Mike', ' #56 Lary', ' #89 Krudo'];
+const opponentNames = ['#12 Rodney','#43 Mike','#56 Lary','#89 Krudo'];
 
 const introduction = () => {
     console.log(`Welcome, ${userName}, today we will be playing a 3 inning baseball game against the ${opponentTeam}, let us begin.`);
@@ -15,8 +15,10 @@ introduction();
 let equipmentList = ['Catching Glove' ,'baseballs' , 'Cleets' , 'and a Wooden Bat'];
 console.log(`You will be using these in the game: ${equipmentList}.`);
 
+const randomName = Math.floor(Math.random() * opponentNames.length);
+
 const introductionPitcher = () => {
-    console.log(`Pitching for the ${opponentTeam}, ${opponentMemberNames[0]}.`);
+    console.log(`Pitching for the ${opponentTeam}, ${opponentNames[randomName]}.`);
     console.log('*Throws ball*');
 }
 introductionPitcher();
@@ -36,17 +38,22 @@ introductionPitcher();
 //strike();
 
 // This code is an attempt on logically connecting strikes and balls together (not finished yet).
-
 const strikeBall = () => {
-    let counterStrike = ['Strike 1!', 'Strike 2!', "Strike 3, You're out!"]
-    //let pitchForStrike = Math.floor(Math.random() * 2 );
-    for (let i = 0; i < counterStrike.length; i++) {
-        return counterStrike[i]
+    let strikeCounter = ['Strike 1!', 'Strike 2!', "Strike 3, You're out!"];
+    let pitchForStrike = Math.floor(Math.random() * 10 );
+        if (pitchForStrike >= 0) {
+             console.log(strikeCounter[0]);
+    } else if (pitchForStrike > 3) {
+             console.log(strikeCounter[1]);
+        } else if (pitchForStrike > 5) {
+             console.log(strikeCounter[2]);
+        } else {
+             console.log(`Outstanding! You just hit a homerun against you're opponent! That's an automatic point for your team!`)
+         }
     }
-}
-console.log(strikeBall());
+strikeBall();
 
-console.log(`Outstanding! You just hit a homerun against ${opponentMemberNames[0]}. That's an automatic point for your team!`);
+//console.log(`Outstanding! You just hit a homerun against ${opponentNames[0]}. That's an automatic point for your team!`);
 
 console.log('That was great batting for this inning. now its time for you to switch to pitching as the star pitcher for the team!')
 // I am currently experimenting with a new function that keeps tracks of Strikes and Balls using arrays and loops above
@@ -74,7 +81,7 @@ strikeLimitTwo();*/
 
 // This is the script for hero team pitching the ball against enemy team. I have not made it this far yet in the game, but just for future reference.
 function heroPitcher (opponentSide) {
-    return console.log(`Great job! you will now be pitching against ${opponentMemberNames[1]}.`)
+    return console.log(`Great job! you will now be pitching against ${opponentNames[randomName]}.`)
 }
 heroPitcher();
 
@@ -83,7 +90,13 @@ console.log('*Throws ball*');
 
 console.log(`Great job! It is the second inning and you will now be batting again.`);
 
-heroPitcher(opponentMemberNames[2]);
+function teammateBatSpare () {
+   return console.log(`After going back into the dugout, you notice that your bat is broken. No worries,${opponentNames[randomName]} has a spare bat.`);
+}
+teammateBatSpare();
+
+
+heroPitcher();
 
 console.log('Excellent! It is now the third inning and you will be batting again.');
 
