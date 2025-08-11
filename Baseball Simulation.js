@@ -25,34 +25,59 @@ introductionPitcher();
 
 // This variable and function declaration is used to generate either a strike or a ball
 /*function strike () {
-    let pitchForStrike = Math.floor(Math.random() * 2 );
+    let pitchForStrike = Math.floor(Math.random() * 10 );
     if (pitchForStrike === 1) {
-        console.log('Strike!');
+        console.log(pitchForStrike);
         return true;
-    } else {
-        console.log('Ball!');
-        return false;
-    }
-} */
+    };
+strike();*/
 // Still testing and figuring out how to count strikes and balls to make more dynamic. Ex: Strike 1, Strike 2, Ball 1, etc..
-//strike();
 
 // This code is an attempt on logically connecting strikes and balls together (not finished yet).
-const strikeBall = () => {
-    let strikeCounter = ['Strike 1!', 'Strike 2!', "Strike 3, You're out!"];
-    let pitchForStrike = Math.floor(Math.random() * 10 );
-        if (pitchForStrike >= 0) {
-             console.log(strikeCounter[0]);
-    } else if (pitchForStrike > 3) {
-             console.log(strikeCounter[1]);
-        } else if (pitchForStrike > 5) {
-             console.log(strikeCounter[2]);
-        } else {
-             console.log(`Outstanding! You just hit a homerun against you're opponent! That's an automatic point for your team!`)
-         }
-    }
-strikeBall();
+    /*const strikeBall = () => {
+        let strikeCounter = ['Strike 1!', 'Strike 2!', "Strike 3, you're out!", `Outstanding! You just hit a homerun against you're opponent! That's an automatic point for your team!`];
+        let pitchForStrike = Math.floor(Math.random() * 10 );
+        for (let i = 0; i < strikeCounter.length; i++) {
+            if (pitchForStrike < ) {
+                console.log(strikeCounter[0]);
+                return true;
+            };
+            } else if (pitchForStrike >= 3 && pitchForStrike <= 5) {
+                console.log(pitchForStrike);
+                console.log(strikeCounter[0]);
+            } else if (pitchForStrike >= 6 && pitchForStrike <= 8) {
+                console.log(pitchForStrike);
+                console.log(strikeCounter[1]);
+            } else {
+                console.log(strikeCounter[2]);
+                console.log(pitchForStrike);
+            }
+        }
+    }*/
 
+console.log('this is where testing is.')
+const strikeBall = () => {
+    let strikeCounter = ['Strike 1!', 'Strike 2!', "Strike 3, you're out!", `Outstanding! You just hit a homerun against you're opponent! That's an automatic point for your team!`];
+    let pitchForStrike = Math.floor(Math.random() * 10 );
+        for (let i = 0; i < strikeCounter.length; i++) {
+            if (pitchForStrike >= 0 && pitchForStrike <= 3) {
+                console.log(strikeCounter[3]);
+                console.log(pitchForStrike);
+                break;
+        } else if (pitchForStrike >= 3 && pitchForStrike <= 5) {
+                console.log(strikeCounter[0]);
+            console.log(pitchForStrike);
+        } else if (pitchForStrike >= 6 && pitchForStrike <= 8) {
+                console.log(pitchForStrike);
+            console.log(strikeCounter[1]);
+        } else {
+            console.log(strikeCounter[2]);
+            console.log(pitchForStrike);
+            break;
+        }
+    }
+    }
+    strikeBall();
 //console.log(`Outstanding! You just hit a homerun against ${opponentNames[0]}. That's an automatic point for your team!`);
 
 console.log('That was great batting for this inning. now its time for you to switch to pitching as the star pitcher for the team!')
@@ -108,4 +133,3 @@ console.log('Thank you for playing this simulation! Here are the results of the 
 
 // Spoiler alert LOL
 console.log(`After you broke your bat during the game, you ended up leaving with ${equipmentList.splice(0,3)}.`);
-
