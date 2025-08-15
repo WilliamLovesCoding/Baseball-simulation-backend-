@@ -2,15 +2,57 @@
 // Note: This project will mainly be backend work since I haven't learned anything frontend related and can't show any visuals.
 
 // Enter the name you want your protagonist to be in the "UserName" variable
-let userName = 'William';
+let userName = '#23 William';
 const opponentTeam = 'Red Sox';
 const heroTeam = 'White Sox';
 const opponentNames = ['#12 Rodney','#43 Mike','#56 Lary','#89 Krudo'];
-
+const heroNames = [userName, '#59 Tom', '#15 Johny','#90 Bob']
 const introduction = () => {
     console.log(`Welcome, ${userName}, today we will be playing a 3 inning baseball game against the ${opponentTeam}, let us begin.`);
 }
 introduction();
+
+const playerDesc = {
+    players: {
+        player23: {
+            _name: userName,
+            _Height: '175 Centimeters',
+            _age: '24'}
+        , playerTom: {
+            _name: '#59 Tom',
+            _Height: '165 Centimeters',
+            _age: '22'
+        }, playerJohny: {
+            _name: '#15 Johny',
+            _Height: '170 Centimeters',
+            _age: '25'
+        }, playerBob: {
+            _name: '#90 Bob',
+            _Height: '180 Centimeters',
+            _age: '23'
+        }, playerRodney: {
+            _name: '#12 Rodney',
+            _Height: '163 Centimeters',
+            _age: '20'
+        }, playerMike: {
+            _name: '#43 Mike',
+            _Height: '172 Centimeters',
+            _age: '19'
+        }, playerLary: {
+            _name: '#56 Lary',
+            _Height: '164 Centimeters',
+            _age: '22'
+        }, playerKrudo: {
+            _name: '#89 Krudo',
+            _Height: '184 Centimeters',
+            _age: '25'
+        }
+    }
+}
+    for (let name in playerDesc.players) {
+        console.log(`Players in the game are ${playerDesc.players[name]._name}. This is a test.`);
+    };
+
 
 let equipmentList = ['Catching Glove' ,'baseballs' , 'Cleets' , 'and a Wooden Bat'];
 console.log(`You will be using these in the game: ${equipmentList}.`);
@@ -24,42 +66,47 @@ const introductionPitcher = () => {
 introductionPitcher();
 
 // This variable and function declaration is used to generate either a strike or a ball
-/*function strike () {
-    let pitchForStrike = Math.floor(Math.random() * 10 );
-    if (pitchForStrike === 1) {
-        console.log(pitchForStrike);
-        return true;
-    };
-strike();*/
+
 // Still testing and figuring out how to count strikes and balls to make more dynamic. Ex: Strike 1, Strike 2, Ball 1, etc..
 
-// This code is an attempt on logically connecting strikes and balls together (not finished yet).
-    /*const strikeBall = () => {
-        let strikeCounter = ['Strike 1!', 'Strike 2!', "Strike 3, you're out!", `Outstanding! You just hit a homerun against you're opponent! That's an automatic point for your team!`];
-        let pitchForStrike = Math.floor(Math.random() * 10 );
-        for (let i = 0; i < strikeCounter.length; i++) {
-            if (pitchForStrike < ) {
-                console.log(strikeCounter[0]);
-                return true;
-            };
-            } else if (pitchForStrike >= 3 && pitchForStrike <= 5) {
-                console.log(pitchForStrike);
-                console.log(strikeCounter[0]);
-            } else if (pitchForStrike >= 6 && pitchForStrike <= 8) {
-                console.log(pitchForStrike);
-                console.log(strikeCounter[1]);
-            } else {
-                console.log(strikeCounter[2]);
-                console.log(pitchForStrike);
-            }
-        }
-    }*/
 
 console.log('this is where testing is.')
+
 const strikeBall = () => {
     let strikeCounter = ['Strike 1!', 'Strike 2!', "Strike 3, you're out!", `Outstanding! You just hit a homerun against you're opponent! That's an automatic point for your team!`];
     let pitchForStrike = Math.floor(Math.random() * 10 );
+    for (let i = 0; i < 3; i++) {
+        pitchForStrike = Math.floor(Math.random() * 10 );
+        if (pitchForStrike >= 0 && pitchForStrike <= 3) {
+            console.log('Strike 1!');
+            console.log(pitchForStrike);
+        } else if ('Strike 1!' === true) {
+            console.log('Strike 2!')
+        }
+        else if (pitchForStrike >= 3 && pitchForStrike <= 5) {
+            console.log('Strike 2!');
+            console.log(pitchForStrike);
+        } else if ('Strike 2!' === true) {
+            console.log('Strike 3!')
+        }
+        else if (pitchForStrike >= 6 && pitchForStrike <= 8) {
+            console.log(pitchForStrike);
+            console.log('Strike 3!');
+            break;
+        } else {
+            console.log(strikeCounter[3]);
+            console.log(pitchForStrike);
+            break;
+        }
+    }
+}
+strikeBall();
+
+/*const strikeBall = () => {
+    let strikeCounter = ['Strike 1!', 'Strike 2!', "Strike 3, you're out!", `Outstanding! You just hit a homerun against you're opponent! That's an automatic point for your team!`];
+    let pitchForStrike = Math.floor(Math.random() * 10 );
         for (let i = 0; i < strikeCounter.length; i++) {
+            pitchForStrike = Math.floor(Math.random() * 2 );
             if (pitchForStrike >= 0 && pitchForStrike <= 3) {
                 console.log(strikeCounter[3]);
                 console.log(pitchForStrike);
@@ -67,7 +114,11 @@ const strikeBall = () => {
         } else if (pitchForStrike >= 3 && pitchForStrike <= 5) {
                 console.log(strikeCounter[0]);
             console.log(pitchForStrike);
-        } else if (pitchForStrike >= 6 && pitchForStrike <= 8) {
+        } else if (strikeCounter[0] === true) {
+                 pitchForStrike = Math.floor(Math.random() * 10 );
+                return strikeCounter.splice(1,4);
+            }
+            else if (pitchForStrike >= 6 && pitchForStrike <= 8) {
                 console.log(pitchForStrike);
             console.log(strikeCounter[1]);
         } else {
@@ -77,7 +128,7 @@ const strikeBall = () => {
         }
     }
     }
-    strikeBall();
+    strikeBall();*/
 //console.log(`Outstanding! You just hit a homerun against ${opponentNames[0]}. That's an automatic point for your team!`);
 
 console.log('That was great batting for this inning. now its time for you to switch to pitching as the star pitcher for the team!')
