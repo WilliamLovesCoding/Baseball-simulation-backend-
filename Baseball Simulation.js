@@ -14,7 +14,7 @@ introduction();
 
 const playerDesc = {
     players: {
-        player23: {
+        playeruserName: {
             _name: userName,
             _Height: '175 Centimeters',
             _age: '24'}
@@ -72,35 +72,50 @@ introductionPitcher();
 
 console.log('this is where testing is.')
 
+let strikeCount = 0;
+let outCount= 0;
+let heroPointsScored = 0;
+let enemyPointsScored = 0;
 const strikeBall = () => {
-    let strikeCounter = ['Strike 1!', 'Strike 2!', "Strike 3, you're out!", `Outstanding! You just hit a homerun against you're opponent! That's an automatic point for your team!`];
-    let pitchForStrike = Math.floor(Math.random() * 10 );
-    for (let i = 0; i < 3; i++) {
-        pitchForStrike = Math.floor(Math.random() * 10 );
-        if (pitchForStrike >= 0 && pitchForStrike <= 3) {
-            console.log('Strike 1!');
-            console.log(pitchForStrike);
-        } else if ('Strike 1!' === true) {
-            console.log('Strike 2!')
-        }
-        else if (pitchForStrike >= 3 && pitchForStrike <= 5) {
-            console.log('Strike 2!');
-            console.log(pitchForStrike);
-        } else if ('Strike 2!' === true) {
-            console.log('Strike 3!')
-        }
-        else if (pitchForStrike >= 6 && pitchForStrike <= 8) {
-            console.log(pitchForStrike);
-            console.log('Strike 3!');
-            break;
+    const strikeHomerunCounter = [
+        "Strike 1!",
+        "Strike 2!",
+        "Strike 3, you're out!",
+        "Outstanding! You just hit a homerun against your opponent! That's an automatic point for your team!"
+    ];
+
+    let pitchForStrike = Math.floor(Math.random() * 6);
+    console.log(pitchForStrike);
+    // I wanted the chance of scoring a hit less often since otherwise you will end up with games of over 20+ points.
+    if (pitchForStrike >= 0 && pitchForStrike <= 4) {
+        strikeCount++;
+
+        if (strikeCount < 3) {
+            console.log(strikeHomerunCounter[strikeCount - 1]);
         } else {
-            console.log(strikeCounter[3]);
-            console.log(pitchForStrike);
-            break;
+            console.log(strikeHomerunCounter[2]);
+            outCount++;
+            strikeCount = 0;
+            console.log("Good job! that was some good hitting, now its time for the next player.");
+            console.log(`Next up, we have ${heroNames[randomName]} batting, good luck.`);
+            console.log('*Throws Ball*');
         }
     }
+        else {
+        console.log(strikeHomerunCounter[3]);
+        strikeCount = 0;
+        heroPointsScored++;
+    }
+
+ };
+
+while (outCount < 3) {
+    strikeBall();
 }
-strikeBall();
+
+function randomHero () {
+}
+
 
 /*const strikeBall = () => {
     let strikeCounter = ['Strike 1!', 'Strike 2!', "Strike 3, you're out!", `Outstanding! You just hit a homerun against you're opponent! That's an automatic point for your team!`];
@@ -132,6 +147,7 @@ strikeBall();
 //console.log(`Outstanding! You just hit a homerun against ${opponentNames[0]}. That's an automatic point for your team!`);
 
 console.log('That was great batting for this inning. now its time for you to switch to pitching as the star pitcher for the team!')
+
 // I am currently experimenting with a new function that keeps tracks of Strikes and Balls using arrays and loops above
 /*const strikeLimit = () => {
     if (strike() === true) {
@@ -182,5 +198,8 @@ console.log('Excellent! It is now the third inning and you will be batting again
 
 console.log('Thank you for playing this simulation! Here are the results of the game:');
 
+console.log(`Your team scored a total of ${heroPointsScored} points.`);
+
+console.log(`The rival team scored a total of ${enemyPointsScored} points.`);
 // Spoiler alert LOL
 console.log(`After you broke your bat during the game, you ended up leaving with ${equipmentList.splice(0,3)}.`);
